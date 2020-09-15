@@ -6,41 +6,39 @@
 
 
 void push(Stack* stack, stackType data) {
-    if (top == )
+    if (top == 99 )
+        printf("Overflow\n");
+    else
+    {
+        stack.arr[++top] = data;
+    }
+        
 }
 
 stackType pop(Stack* stack) {
-    if(stack->top == NULL) {
-        printf("Stack underflow while pop\n");
-        return -1;
+    if(top == -1)
+        printf("Underflow\n");
+    else
+    {
+        top = top - 1;
+        return stack.arr[top+1];
     }
-    Node* next = stack->top->next;
-    stackType data = stack->top->data;
-    free(stack->top);
-    stack->top = next;
-    return data;
 }
 
 stackType peek(Stack* stack) {
-    if(stack->top == NULL) {
-        printf("Stack underflow while pop\n");
-        return -1;
-    }
-    stackType data = stack->top->data;
-    return data;
+    if (top == -1)
+         printf("Underflow\n");
+    else
+        return stack.arr[top];
+        
 }
 
 int isEmpty(Stack* stack) {
-    return stack->top == NULL;
+    return (top == -1);
 }
 
 int isFull(Stack* stack) {
-    Node* newNode = malloc(sizeof(Node));
-    if(newNode == NULL) {
-        return 1;
-    }
-    free(newNode);
-    return 0;
+    return (top == 99)
 }
 
 void print(Stack* stack) {
@@ -50,4 +48,13 @@ void print(Stack* stack) {
         current = current->next;
     }
     printf("\n");
+    
+     if(top == -1)
+        printf("Underflow\n");
+    else
+    {
+       int i;
+        for(i=0;i<=top;++i)
+             printf(TYPE_FMT" ", stack.arr[i]);
+    }
 }
