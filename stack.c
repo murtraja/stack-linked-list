@@ -4,15 +4,9 @@
 #include "stackconfig.h"
 #include "stack.h"
 
+
 void push(Stack* stack, stackType data) {
-    Node* newNode = malloc(sizeof(Node));
-    if(newNode == NULL) {
-        printf("Stack overflow while push()");
-        return;
-    }
-    newNode->data = data;
-    newNode->next = stack->top;
-    stack->top = newNode;
+    if (top == )
 }
 
 stackType pop(Stack* stack) {
