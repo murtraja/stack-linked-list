@@ -1,4 +1,5 @@
 #include "stackconfig.h"
+const int maxsize = 100;
 
 typedef struct Stack Stack;
 
@@ -12,7 +13,7 @@ typedef char stackType;
 
 struct Stack {
     int top = -1;
-    stcktype arr[100];
+    stcktype arr[maxsize];
 };
 
 void push(Stack* stack, stackType data);
