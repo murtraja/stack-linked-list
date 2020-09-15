@@ -5,7 +5,7 @@
 #include "stack.h"
 
 void push(Stack* stack, stackType data) {
-    if(stack->top == MAX) {
+    if(stack->top == MAX_SIZE) {
         printf("Stack overflow while push()");
         return ;
     }
@@ -36,7 +36,7 @@ int isEmpty(Stack* stack) {
 }
 
 int isFull(Stack* stack) {
-    if(stack->top == MAX) {
+    if(stack->top == MAX_SIZE) {
         return 1;
     }
     return 0;
