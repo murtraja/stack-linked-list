@@ -1,22 +1,30 @@
-#include <stdlib.h>
 #include <stdio.h>
-
+#include <stdlib.h>
+#define MAX 100
 #include "stackconfig.h"
 #include "stack.h"
-
-void push(Stack* stack, stackType data) {
+int top = -1;
+void push(char stack[MAX], char data) {
+/*void push(Stack* stack, stackType data) {
     Node* newNode = malloc(sizeof(Node));
     if(newNode == NULL) {
-        printf("Stack overflow while push()");
+       printf("Stack overflow while push()");
         return;
     }
     newNode->data = data;
     newNode->next = stack->top;
-    stack->top = newNode;
+    stack->top = newNode;*/
+    if(top>=MAX){
+      printf("stackoverflow\n");
+      return;
+    }
+   else{
+     top = top+1;
+     stack[top]= data;
 }
-
-stackType pop(Stack* stack) {
-    if(stack->top == NULL) {
+}
+char pop(char stack[MAX]) {
+    /*if(stack->top == NULL) {
         printf("Stack underflow while pop\n");
         return -1;
     }
@@ -24,36 +32,55 @@ stackType pop(Stack* stack) {
     stackType data = stack->top->data;
     free(stack->top);
     stack->top = next;
-    return data;
+    return data;*/
+    if(top<=-1){
+     printf("underflow");
+   }
+   else{
+     //printf("popped element: %d",stack[top]);
+     top = top-1;
+     return stack[top];
+     //printf("stack is popped\n");
+   }
 }
-
-stackType peek(Stack* stack) {
-    if(stack->top == NULL) {
+char peek(char stack[MAX]) {
+    /*if(stack->top == NULL) {
         printf("Stack underflow while pop\n");
         return -1;
     }
     stackType data = stack->top->data;
-    return data;
+    return data;*/
+    if(top<=-1){
+     return -1;
+   }
+    else{
+      return stack[top];
+   }
 }
-
-int isEmpty(Stack* stack) {
-    return stack->top == NULL;
+int isEmpty(char stack[MAX]) {
+	if(top<1){
+    return 1;
 }
-
-int isFull(Stack* stack) {
-    Node* newNode = malloc(sizeof(Node));
-    if(newNode == NULL) {
-        return 1;
-    }
-    free(newNode);
-    return 0;
+else{
+return 0;
 }
-
-void print(Stack* stack) {
-    Node* current = stack->top;
+}
+int isFull(char stack[MAX]) {
+if(top==MAX){
+return 1;
+}
+else{
+return 0;
+}
+}
+void print(char stack[MAX]) {
+    /*Node* current = stack->top;
     while(current != NULL) {
         printf(TYPE_FMT" ", current->data);
         current = current->next;
     }
-    printf("\n");
+    printf("\n");*/
+    for(int i=top; i>=0; i--){
+     printf("%d\n",stack[i]);
+}
 }
