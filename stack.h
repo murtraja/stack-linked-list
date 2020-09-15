@@ -1,6 +1,7 @@
 #include "stackconfig.h"
 
 typedef struct Stack Stack;
+typedef stack.top top;
 
 #ifdef INT_STACK
 typedef int stackType;
