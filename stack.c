@@ -5,21 +5,16 @@
 #include "stack.h"
 int top = -1;
 void push(Stack* stack, stackType data) {
-    Node* newNode = malloc(sizeof(Node));
-    if(newNode == NULL) {
-       printf("Stack overflow while push()");
+  void push(Stack* stack, stackType data) {
+    //Node* newNode = malloc(sizeof(Node));
+    if(stack->top == MAX) {
+        printf("Stack overflow while push()");
         return;
     }
-    newNode->data = data;
-    newNode->next = stack->top;
-    stack->top = newNode;*/
-    if(top>=MAX){
-      printf("stackoverflow\n");
-      return;
-    }
-   else{
-     top = top+1;
-     stack[top]= data;
+    //newNode->data = data;
+    //newNode->next = stack->top;
+    stack->top++;
+    stack->array[stack->top] = data;
 }
 }
 char pop(char stack[MAX]) {
