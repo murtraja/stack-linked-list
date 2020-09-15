@@ -3,7 +3,6 @@
 #define MAX 100
 #include "stackconfig.h"
 #include "stack.h"
-int top = -1;
 void push(Stack* stack, stackType data) {
   void push(Stack* stack, stackType data) {
     //Node* newNode = malloc(sizeof(Node));
