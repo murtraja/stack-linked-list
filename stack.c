@@ -3,7 +3,6 @@
 #define MAX 100
 #include "stackconfig.h"
 #include "stack.h"
-void push(Stack* stack, stackType data) {
   void push(Stack* stack, stackType data) {
     //Node* newNode = malloc(sizeof(Node));
     if(stack->top == MAX) {
@@ -14,7 +13,6 @@ void push(Stack* stack, stackType data) {
     //newNode->next = stack->top;
     stack->top++;
     stack->array[stack->top] = data;
-}
 }
 char pop(char stack[MAX]) {
     /*if(stack->top == NULL) {
