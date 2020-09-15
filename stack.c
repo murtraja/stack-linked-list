@@ -4,56 +4,58 @@
 #include "stackconfig.h"
 #include "stack.h"
 
-void push(Stack* stack, stackType data) {
-    Node* newNode = malloc(sizeof(Node));
-    if(newNode == NULL) {
+void push(Stack* stack, stackType data)
+ {
+    if(stack->top==MAX_SIZE)
+    {
         printf("Stack overflow while push()");
         return;
     }
-    newNode->data = data;
-    newNode->next = stack->top;
-    stack->top = newNode;
+    stack->array[++stack->top]=data;
 }
 
-stackType pop(Stack* stack) {
-    if(stack->top == NULL) {
+stackType pop(Stack* stack) 
+   {
+    if(stack->top == -1) 
+    {
         printf("Stack underflow while pop\n");
         return -1;
     }
-    Node* next = stack->top->next;
-    stackType data = stack->top->data;
-    free(stack->top);
-    stack->top = next;
-    return data;
+    stack->top--;
+    return stack->array[stack->top+1];
 }
 
-stackType peek(Stack* stack) {
-    if(stack->top == NULL) {
+stackType peek(Stack* stack)
+   {
+    if(stack->top ==-1) 
+   {
         printf("Stack underflow while pop\n");
         return -1;
     }
-    stackType data = stack->top->data;
-    return data;
+    return stack->array[stack->top];
 }
 
-int isEmpty(Stack* stack) {
-    return stack->top == NULL;
+int isEmpty(Stack* stack)
+  {
+    return stack->top == -1;
 }
 
 int isFull(Stack* stack) {
-    Node* newNode = malloc(sizeof(Node));
-    if(newNode == NULL) {
+    if(stack->top==MAX_SIZE)
+   {
         return 1;
     }
-    free(newNode);
     return 0;
 }
 
 void print(Stack* stack) {
-    Node* current = stack->top;
-    while(current != NULL) {
-        printf(TYPE_FMT" ", current->data);
-        current = current->next;
+         if(isEmpty(stack)) 
+          return;
+        int i;
+        for(i=0;i<=stack<-top;i++) ;
+    {
+        printf(TYPE_FMT" ",stack->array[i]);
+     
     }
     printf("\n");
 }
