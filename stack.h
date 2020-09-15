@@ -1,7 +1,7 @@
 #include "stackconfig.h"
 
 typedef struct Stack Stack;
-typedef struct Node Node;
+typedef struct.top top;
 
 #ifdef INT_STACK
 typedef int stackType;
@@ -11,13 +11,9 @@ typedef char stackType;
 #define TYPE_FMT "%c"
 #endif
 
-struct Node {
-    stackType data;
-    Node* next;
-};
-
 struct Stack {
-    Node* top;
+   int top=-1;
+    stackType arr[100];
 };
 
 void push(Stack* stack, stackType data);
