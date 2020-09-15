@@ -106,6 +106,10 @@ void problemThreeSort()
 int main()
 {
     testCharStack();
+
+    // refer stackconfig.h to change to an int stack
+    // testIntStack();
+
     problemTwoCheckPalindrome();
     problemThreeSort();
     return 0;
