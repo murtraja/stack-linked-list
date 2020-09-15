@@ -17,7 +17,8 @@ void push(Stack* stack, stackType data) {
 
 stackType pop(Stack* stack) {
     if(stack.top == -1)
-        printf("Underflow\n");
+    {printf("Underflow\n");
+        return -1;}
     else
     {
         stack.top = stack.top - 1;
@@ -47,7 +48,7 @@ void print(Stack* stack) {
     else
     {
        int i;
-        for(i=0;i<=stack.top;++i)
+        for(i=stack.top;i>=0;--i)
              printf(TYPE_FMT" ", stack.arr[i]);
     }
 }
