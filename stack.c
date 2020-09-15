@@ -6,7 +6,7 @@
 
 
 void push(Stack* stack, stackType data) {
-    if (stack.top == 99 )
+    if (stack.top == max_size - 1 )
         printf("Overflow\n");
     else
     {
@@ -38,7 +38,7 @@ int isEmpty(Stack* stack) {
 }
 
 int isFull(Stack* stack) {
-    return (stack.top == 99);
+    return (stack.top == max_size-1);
 }
 
 void print(Stack* stack) {
