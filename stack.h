@@ -1,4 +1,5 @@
 #include "stackconfig.h"
+const int max_size = 100;
 
 typedef struct Stack Stack;
 
