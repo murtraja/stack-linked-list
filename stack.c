@@ -44,12 +44,6 @@ int isFull(Stack* stack) {
 }
 
 void print(Stack* stack) {
-    Node* current = stack->top;
-    while(current != NULL) {
-        printf(TYPE_FMT" ", current->data);
-        current = current->next;
-    }
-    printf("\n");
     
     if (top == -1)
         printf{"Underflow\n"};
