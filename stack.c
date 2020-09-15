@@ -5,55 +5,52 @@
 #include "stack.h"
 
 void push(Stack* stack, stackType data) {
-    Node* newNode = malloc(sizeof(Node));
-    if(newNode == NULL) {
-        printf("Stack overflow while push()");
-        return;
+    if(stack->top==19)
+    {
+    	printf("Stack overflow while push()");
+    	return;
     }
-    newNode->data = data;
-    newNode->next = stack->top;
-    stack->top = newNode;
+    	stack->top++;
+		stack->arr[stack->top]=data;	
 }
 
 stackType pop(Stack* stack) {
-    if(stack->top == NULL) {
+    if(stack->top == -1) 
+	{
         printf("Stack underflow while pop\n");
         return -1;
     }
-    Node* next = stack->top->next;
-    stackType data = stack->top->data;
-    free(stack->top);
-    stack->top = next;
+    stackType data;
+    data=stack->arr[stack->top];
+    stack->top--;
     return data;
 }
 
 stackType peek(Stack* stack) {
-    if(stack->top == NULL) {
+    if(stack->top == -1) {
         printf("Stack underflow while pop\n");
         return -1;
     }
-    stackType data = stack->top->data;
+    stackType data = stack->arr[stack->top];
     return data;
 }
 
 int isEmpty(Stack* stack) {
-    return stack->top == NULL;
+    return stack->top == -1;
 }
 
 int isFull(Stack* stack) {
-    Node* newNode = malloc(sizeof(Node));
-    if(newNode == NULL) {
+    if(stack->top==19) {
         return 1;
     }
-    free(newNode);
     return 0;
 }
 
 void print(Stack* stack) {
-    Node* current = stack->top;
-    while(current != NULL) {
-        printf(TYPE_FMT" ", current->data);
-        current = current->next;
+    int current=stack->top;
+    while(current>=0) {
+        printf(TYPE_FMT" ", stack->arr[current]);
+        current++;
     }
     printf("\n");
 }
