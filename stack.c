@@ -6,48 +6,48 @@
 
 
 void push(Stack* stack, stackType data) {
-    if (top == 99 )
+    if (stack.top == 99 )
         printf("Overflow\n");
     else
     {
-        stack.arr[++top] = data;
+        stack.arr[++stack.top] = data;
     }
         
 }
 
 stackType pop(Stack* stack) {
-    if(top == -1)
+    if(stack.top == -1)
         printf("Underflow\n");
     else
     {
-        top = top - 1;
-        return stack.arr[top+1];
+        stack.top = stack.top - 1;
+        return stack.arr[stack.top+1];
     }
 }
 
 stackType peek(Stack* stack) {
-    if (top == -1)
+    if (stack.top == -1)
          printf("Underflow\n");
     else
-        return stack.arr[top];
+        return stack.arr[stack.top];
         
 }
 
 int isEmpty(Stack* stack) {
-    return (top == -1);
+    return (stack.top == -1);
 }
 
 int isFull(Stack* stack) {
-    return (top == 99);
+    return (stack.top == 99);
 }
 
 void print(Stack* stack) {
-     if(top == -1)
+     if(stack.top == -1)
         printf("Underflow\n");
     else
     {
        int i;
-        for(i=0;i<=top;++i)
+        for(i=0;i<=stack.top;++i)
              printf(TYPE_FMT" ", stack.arr[i]);
     }
 }
