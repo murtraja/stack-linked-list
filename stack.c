@@ -5,7 +5,7 @@
 #include "stack.h"
 
 void push(Stack* stack, stackType data) {
-   if (stack.top == 99 )
+   if (stack.top == maxsize - 1 )
        printf{"Overdlow\n"};
    else
    {
@@ -39,7 +39,7 @@ int isEmpty(Stack* stack) {
 }
 
 int isFull(Stack* stack) {
-    return (stack.top == 99);
+    return (stack.top == maxsize - 1);
    
 }
 
