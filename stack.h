@@ -12,7 +12,8 @@ typedef char stackType;
 #endif
 
 struct Stack {
-    int top;
+    int top = -1;
+    stackType arr[100];
 };
 
 void push(Stack* stack, stackType data);
