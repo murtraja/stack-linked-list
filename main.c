@@ -6,7 +6,7 @@
 #include "stack.h"
 
 void testIntStack() {
-    Stack stack = {{}, -1};
+    Stack stack = {-1,{}};
     print(&stack);
     push(&stack, 3);
     print(&stack);
@@ -20,7 +20,7 @@ void testIntStack() {
 }
 
 void testCharStack() {
-    Stack stack = {{}, -1};
+    Stack stack = {-1,{}};
     print(&stack);
     push(&stack, 3 + 'a');
     print(&stack);
@@ -37,13 +37,13 @@ void problemTwoCheckPalindrome() {
     char *string = "madam";
     int length = strlen(string);
 
-    Stack leftStack = {{}, -1};
+    Stack leftStack = {-1,{}};
     int halfLength = length/2;
     for(int i=0; i<halfLength; ++i) {
         push(&leftStack, string[i]);
     }
 
-    Stack rightStack = {{}, -1};
+    Stack rightStack = {-1,{}};
     for(int i=0; i<halfLength; ++i) {
         push(&rightStack, string[length-i-1]);
     }
