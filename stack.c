@@ -51,7 +51,7 @@ void print(Stack* stack) {
     else
     {
         int i;
-            for(i=0;i<=top;++i)
+            for(i=stack.top;i>=0;--i)
                 printf{TYPE_FMT"", stack.arr[i]};
         
     }
