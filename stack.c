@@ -14,7 +14,7 @@ void push(Stack* stack, stackType data) {
 }
 
 stackType pop(Stack* stack) {
-    if(stack->top == -1) {
+    if(stack->top = -1) {
         printf("Stack underflow while pop\n");
         return -1;
     }
