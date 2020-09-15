@@ -8,6 +8,7 @@ typedef int stackType;
 typedef char stackType;
 #define TYPE_FMT "%c"
 #endif
+#define range 20
 
 /*struct Node {
     stackType data;
@@ -15,7 +16,7 @@ typedef char stackType;
 };*/
 
 struct Stack {
-    stackType arr[20];
+    stackType arr[range];
     int top;
 };
 
