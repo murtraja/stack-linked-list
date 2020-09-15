@@ -19,7 +19,7 @@ typedef char stackType;
 
 struct Stack
 {
-    int array[MAX_SIZE];
+    stackType array[MAX_SIZE];
     int top;
 };
 
