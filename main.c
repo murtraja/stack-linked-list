@@ -8,11 +8,31 @@
 void testIntStack() {
     Stack stack;
     stack.top=-1;
+    print(&stack);
+    push(&stack, 3);
+    print(&stack);
+    push(&stack, 4);
+    print(&stack);
+    push(&stack, 5);
+    print(&stack);
+    pop(&stack);
+    print(&stack);
+    printf("%d\n", peek(&stack));
 }
 
 void testCharStack() {
     Stack stack;
     stack.top=-1;
+	print(&stack);
+    push(&stack, 3 + 'a');
+    print(&stack);
+    push(&stack, 4 + 'a');
+    print(&stack);
+    push(&stack, 5 + 'a');
+    print(&stack);
+    pop(&stack);
+    print(&stack);
+    printf("%c\n", peek(&stack));
 }
 
 void problemTwoCheckPalindrome() {
