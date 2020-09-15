@@ -5,7 +5,7 @@
 #include "stack.h"
 
 void push(Stack* stack, stackType data) {
-    if(stack->top==19)
+    if(stack->top==range-1)
     {
     	printf("Stack overflow while push()");
     	return;
@@ -40,7 +40,7 @@ int isEmpty(Stack* stack) {
 }
 
 int isFull(Stack* stack) {
-    if(stack->top==19) {
+    if(stack->top==range-1) {
         return 1;
     }
     return 0;
@@ -50,7 +50,7 @@ void print(Stack* stack) {
     int current=stack->top;
     while(current>=0) {
         printf(TYPE_FMT" ", stack->arr[current]);
-        current++;
+        current--;
     }
     printf("\n");
 }
