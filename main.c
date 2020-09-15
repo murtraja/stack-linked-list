@@ -6,7 +6,8 @@
 #include "stack.h"
 
 void testIntStack() {
-    Stack stack = {NULL};
+    Stack stack;
+    stack.top=-1;
     print(&stack);
     push(&stack, 3);
     print(&stack);
@@ -20,7 +21,8 @@ void testIntStack() {
 }
 
 void testCharStack() {
-    Stack stack = {NULL};
+    Stack stack;
+    stack.top=-1;
     print(&stack);
     push(&stack, 3 + 'a');
     print(&stack);
