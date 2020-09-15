@@ -18,7 +18,8 @@ void push(Stack* stack, stackType data) {
 
 stackType pop(Stack* stack) {
     if(stack.top = = -1)
-        printf{"Underflow\n};
+    {printf{"Underflow\n};
+           return -1;}
     else
     {
         stack.top = stack.top - 1;
