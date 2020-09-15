@@ -13,7 +13,7 @@ typedef char stackType;
 
 struct Stack {
     int top = -1;
-    stackType arr[100];
+    stackType arr[max_size];
 };
 
 void push(Stack* stack, stackType data);
