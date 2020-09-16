@@ -38,13 +38,13 @@ void problemTwoCheckPalindrome() {
     int length = strlen(string);
 
     Stack leftStack = {{}, -1};
-    int halfLength = length/2;
-    for (int i = 0; i < halfLength; ++i) {
+    int halfLength = length/2, i;
+    for (i = 0; i < halfLength; ++i) {
         push(&leftStack, string[i]);
     }
 
     Stack rightStack = {{}, -1};
-    for (int i = 0; i < halfLength; ++i) {
+    for (i = 0; i < halfLength; ++i) {
         push(&rightStack, string[length-i-1]);
     }
     int palindrome = 1;
@@ -64,19 +64,19 @@ void problemTwoCheckPalindrome() {
 }
 
 void problemThreeSort() {
-    int MAX = 255;
+    int i, j, MAX = 255;
     Stack counts[MAX];
-    for(int i = 0; i < MAX; ++i) {
+    for(i = 0; i < MAX; ++i) {
         counts[i].top = -1;
     }
     char *string = "bcfda";
     int length = strlen(string);
-    for(int i=0; i<length; ++i) {
+    for(i=0; i<length; ++i) {
         int ch = string[i];
         push(&counts[ch], ch);
     }
     char sorted[length+1];
-    for(int i=0, j=0; i<MAX; ++i) {
+    for(i=0, j=0; i<MAX; ++i) {
         while(!isEmpty(&counts[i])) {
             sorted[j++] = pop(&counts[i]);
         }
@@ -87,10 +87,10 @@ void problemThreeSort() {
 }
 
 int main() {
-    testCharStack();
+    // testCharStack();
 
     // refer stackconfig.h to change to an int stack
-    // testIntStack();
+    testIntStack();
 
     problemTwoCheckPalindrome();
     problemThreeSort();

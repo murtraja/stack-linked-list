@@ -44,10 +44,10 @@ int isFull(Stack* stack) {
 void print(Stack* stack) {
     if (stack->top == -1) {
       printf("Stack underflow while print\n");
-      return -1;
+      return;
     }
     int i = 0;
-    while(i <= top) {
+    while(i <= stack->top) {
         printf(TYPE_FMT" ", stack->arr[i]);
         ++i;
     }

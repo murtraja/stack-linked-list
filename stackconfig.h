@@ -3,4 +3,4 @@
     comment the line to use a char stack
 */
 
-// #define INT_STACK
+#define INT_STACK
