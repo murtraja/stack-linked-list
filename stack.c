@@ -5,18 +5,26 @@
 #include "stack.h"
 
 void push(Stack* stack, stackType data) {
-    Node* newNode = malloc(sizeof(Node));
+    /*Node* newNode = malloc(sizeof(Node));
     if(newNode == NULL) {
         printf("Stack overflow while push()");
         return;
     }
     newNode->data = data;
     newNode->next = stack->top;
-    stack->top = newNode;
+    stack->top = newNode; */
+
+    if(stack->top == MAXS){
+    	printf("Stack is Full!Overflow!\n");
+	}
+	else{
+		stack->top++;
+		stack->array[stack->top]=data;
+	}
 }
 
 stackType pop(Stack* stack) {
-    if(stack->top == NULL) {
+    /*if(stack->top == NULL) {
         printf("Stack underflow while pop\n");
         return -1;
     }
@@ -24,36 +32,58 @@ stackType pop(Stack* stack) {
     stackType data = stack->top->data;
     free(stack->top);
     stack->top = next;
-    return data;
+    return data;*/
+
+    if(stack->top == -1){
+    	printf("Stack is empty!Underflow!\n");
+	}
+	else {
+		stackType data= stack->array[stack->top];
+		stack->top--;
+		return data;
+	}
+
 }
 
-stackType peek(Stack* stack) {
-    if(stack->top == NULL) {
+stackType peek(Stack *stack) {
+    /*if(stack->top == NULL) {
         printf("Stack underflow while pop\n");
         return -1;
     }
     stackType data = stack->top->data;
-    return data;
+    return data;*/
+
+    if(stack->top == -1){
+    	printf("Stack is empty!\n");
+	}
+	else{
+		return stack->array[stack->top];
+	}
+
 }
 
 int isEmpty(Stack* stack) {
-    return stack->top == NULL;
+    return stack->top == -1;
 }
 
 int isFull(Stack* stack) {
-    Node* newNode = malloc(sizeof(Node));
-    if(newNode == NULL) {
-        return 1;
-    }
-    free(newNode);
-    return 0;
+    if(stack->top == MAXS){
+    	return 1;
+	}
+    else{
+    	return 0;
+	}
 }
 
 void print(Stack* stack) {
-    Node* current = stack->top;
-    while(current != NULL) {
-        printf(TYPE_FMT" ", current->data);
-        current = current->next;
-    }
-    printf("\n");
+	int i=0;
+    if (isEmpty(stack)){
+    	return;
+	}
+	else{
+		for(i=0; i<=stack->top;i++){
+			printf(TYPE_FMT" ", stack->array[i]);
+		}
+	}
+	printf("\n");
 }
